@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-videorecorder"
+  version="0.0.1">
+
+    <name>VideoRecorder</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+	
+	<dependency id="cordova-plugin-camera" version="^2.4.1-dev" />
+
+    <js-module src="www/videoRecoder.js" name="videoRecorder">
+        <clobbers target="VideoRecorder" />
+    </js-module>
+	
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VideoRecoder">
+				<param name="android-package" value="com.pc.videoRecorder.VideoRecorder" />
+			</feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+			 <activity android:name="com.pc.videoRecorder.RecordVideoActivity" android:theme="@style/videoReconderTheme" ></activity>
+			 <activity android:name="com.pc.videoRecorder.VideoPreviewActivity" android:theme="@style/videoReconderTheme" ></activity>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+		
+		<source-file src="src/android/com/pc/videoRecorder/FakeR.java" target-dir="src/com/pc/videoRecorder" />
+		<source-file src="src/android/com/pc/videoRecorder/MovieRecorderView.java" target-dir="src/com/pc/videoRecorder" />
+		<source-file src="src/android/com/pc/videoRecorder/RecordVideoActivity.java" target-dir="src/com/pc/videoRecorder" />
+		<source-file src="src/android/com/pc/videoRecorder/VideoPreviewActivity.java" target-dir="src/com/pc/videoRecorder" />
+		<source-file src="src/android/com/pc/videoRecorder/VideoRecorder.java" target-dir="src/com/pc/videoRecorder" />
+  
+        <source-file src="src/android/library/res/drawable/button_bg_red.xml" target-dir="res/drawable"/>
+		
+		<source-file src="src/android/library/res/layout/activity_record_video.xml" target-dir="res/layout"/>
+        <source-file src="src/android/library/res/layout/activity_video_attestation_upload.xml" target-dir="res/layout"/>
+		<source-file src="src/android/library/res/layout/head.xml" target-dir="res/layout"/>
+		<source-file src="src/android/library/res/layout/movie_recorder_view.xml" target-dir="res/layout"/>
+		
+		<source-file src="src/android/library/res/mipmap-xhdpi/btn_back.png" target-dir="res/mipmap-xhdpi"/>
+		<source-file src="src/android/library/res/mipmap-xhdpi/video_play.png" target-dir="res/mipmap-xhdpi"/>
+		
+		<source-file src="src/android/library/res/mipmap-xhdpi/btn_back.png" target-dir="res/mipmap-ldpi"/>
+		<source-file src="src/android/library/res/mipmap-xhdpi/video_play.png" target-dir="res/mipmap-ldpi"/>
+		
+		<source-file src="src/android/library/res/mipmap-xhdpi/btn_back.png" target-dir="res/mipmap-mdpi"/>
+		<source-file src="src/android/library/res/mipmap-xhdpi/video_play.png" target-dir="res/mipmap-mdpi"/>
+		
+		<source-file src="src/android/library/res/mipmap-xhdpi/btn_back.png" target-dir="res/mipmap-hdpi"/>
+		<source-file src="src/android/library/res/mipmap-xhdpi/video_play.png" target-dir="res/mipmap-hdpi"/>
+		
+		
+		<source-file src="src/android/library/res/values/attrs.xml" target-dir="res/values"/>
+		<source-file src="src/android/library/res/values/videoRecoderColors.xml" target-dir="res/values"/>
+		<source-file src="src/android/library/res/values/dimens.xml" target-dir="res/values"/>
+		<source-file src="src/android/library/res/values/videoRecoderThemes.xml" target-dir="res/values"/>
+		
+		<source-file src="src/android/library/res/values-w820dp/dimens.xml" target-dir="res/values-w820dp"/>
+		
+		<framework src="src/android/ignorelinterrors.gradle" custom="true" type="gradleReference"/>
+        <framework src="src/android/androidtarget.gradle" custom="true" type="gradleReference"/>
+    </platform>
+</plugin>

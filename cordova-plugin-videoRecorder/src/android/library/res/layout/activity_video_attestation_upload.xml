@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/head" />
+
+    <FrameLayout
+        android:background="#000"
+        android:layout_marginTop="44dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <VideoView
+            android:id="@+id/videoView_show"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/imageView_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/button_play"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/video_play" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="44dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+		</RelativeLayout>
+    </FrameLayout>
+    
+    <Button android:id="@+id/button_done"
+        	android:background="#fff"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:text="完成"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#222"
+            android:textSize="15sp" />
+</RelativeLayout>
